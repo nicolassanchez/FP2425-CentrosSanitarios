@@ -35,6 +35,7 @@ Lee las [instrucciones](##Instrucciones) del proyecto que se indican a continuac
 
 * **leer_centros**: recibe la ruta de un fichero CSV codificado en UTF-8, y devuelve una lista de tuplas de tipo ```CentroSanitario(str, str, Coordenadas(float, float), str, int, bool, bool)``` conteniendo todos los datos almacenados en el fichero. 
 * **calcular_total_camas_centros_accesibles**: recibe una lista de tuplas de tipo ```CentroSanitario``` y produce como salida un entero correspondiente al número total de camas de los centros sanitarios accesibles para discapacitados.
+* **obtener_total_centros_porEstado** : recibe una lista de tuplas de tipo ```CentroSanitario``` y el número de estados a mostrar (por defecto 1). Produce como salida list[tuple[Any, int]] con el estado y el número de centros de dicho estado.
 * **obtener_centros_con_uci_cercanos_a**: recibe una lista de tuplas de tipo ```CentroSanitario```; una tupla de tipo ```Coordenadas```, que representa un punto; y un float, que representa un umbral de distancia. Produce como salida una lista de tuplas ```(str, str, Coordenadas(float, float))``` con el nombre, del centro, la localidad y la ubicacion de los centros **con uci** situados a una distancia de las coordenadas dadas como parámetro menor o igual que el umbral dado. Observe la Figura 3 para entender mejor el resultado de la función.
 ![image](https://user-images.githubusercontent.com/72299672/195154929-a0c9fa7b-6f05-4289-b4ee-ea33d011d491.png)
  
@@ -68,9 +69,9 @@ Implementa las funciones que se especifican a continuación en dicho [módulo](h
 
 1.	`leer_centros`
 2.	`calcular_total_camas_centros_accesibles`
-3.	`obtener_centros_con_uci_cercanos_a`
-4.	`generar_mapa`
-
+3.	`calcular_total_camas_porEstado`
+4.	`obtener_centros_con_uci_cercanos_a`
+5.	`generar_mapa`
 
 Para implementar la función `generar_mapa` ayúdate de las funciones auxiliares que se implementan en el módulo [mapas.py](./src/mapas.py). Además, ten en cuenta que:
 1.	Primero debes crear un mapa. Usa la media de las coordenadas de las ubicaciones de los centros para centrar el mapa.
@@ -81,8 +82,8 @@ El resultado deber ser un fichero con un mapa similar al de la Figura 4, que se 
 
 ![image](https://user-images.githubusercontent.com/72299672/195155059-9ba41234-51ed-4c45-a812-5792a30a5831.png)
  
-| RETO |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| RETO PARA CASA |
+|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | La fórmula de la distancia euclídea empleada en este proyecto no es la más adecuada cuando se quieren calcular distancias entre dos puntos del globo terrestre, ya que no tiene en cuenta la curvatura de la tierra. Para calcular la distancia entre dos puntos del globo terrestre se usa una aproximación que viene dada por la fórmula de Haversine . Implemente una función `distancia_harvesine` para que en el proyecto se hagan unos cálculos más realistas. |
 
 
